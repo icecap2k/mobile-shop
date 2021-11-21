@@ -1,0 +1,29 @@
+## Coverage Unit Testing
+coverage/*
+
+# e2e_test
+e2e_test/webdrivers
+e2e_test/tests
+e2e_test/reports
+cypress/screenshots
+cypress/videos
+cypress/downloads/*
+
+# Node's rubbish
+dist/*
+css/main.css
+node_modules/*
+*npm-debug.log
+*yarn-error.log
+*package-lock.json
+
+# Editor settings
+.vscode
+# Temporary files
+*~
+*.meta
+*.lock
+
+# Exception
+!**/.gitkeep
+!app/yarn.lock
