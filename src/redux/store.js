@@ -1,10 +1,15 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { ADD_PRODUCTS, UPDATE_CART_COUNT } from "./actions";
+import {
+  ADD_PRODUCTS,
+  SET_CURRENT_PRODUCT,
+  UPDATE_CART_COUNT,
+} from "./actions";
 
 const initialState = {
   product: {
     list: [],
+    current: {},
   },
   cart: {
     count: 0,
@@ -19,6 +24,15 @@ export const products = (state = initialState, action = {}) => {
         product: {
           ...state.product,
           list: action.productList,
+        },
+      };
+    case SET_CURRENT_PRODUCT:
+      console.log("SET_CURRENT_PRODUCT", action);
+      return {
+        ...state,
+        product: {
+          ...state.product,
+          current: action.currentProduct,
         },
       };
     case UPDATE_CART_COUNT:

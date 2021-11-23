@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Routes are exported correctly 1`] = `
+Array [
+  "Home: /",
+  "Product detail: /products/:productId",
+]
+`;

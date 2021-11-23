@@ -1,15 +1,21 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addCurrentProduct } from "../redux/actions";
 
 const ProductList = () => {
-  const productList = useSelector((state) => state.mobileProductList);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    //reset store
+    dispatch(addCurrentProduct({}));
+  }, []);
+  const { list } = useSelector((state) => state.product);
 
   return (
     <section>
-      {productList?.map(({ id, imgUrl, brand, model, price }) => (
+      {list?.map(({ id, imgUrl, brand, model, price }) => (
         <article key={id}>
-          <Link to={`/detail/${id}`}>
+          <Link to={`/products/${id}`}>
             <img src={imgUrl} />
             {brand}
             {model}
